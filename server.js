@@ -16,7 +16,7 @@ if (process.env.NODE_ENV === "production") {
 
 // Use the public
 app.use(express.static("public"));
-const db = require("./models");
+const db = require("./models")
 
 mongoose.connect("mongodb://localhost/googlebooks", {
   useNewUrlParser: true
