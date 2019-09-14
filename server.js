@@ -3,6 +3,7 @@ const path = require("path");
 const PORT = process.env.PORT || 3001;
 const app = express();
 const mongoose = require("mongoose");
+const axios = require('axios')
 
 // Define middleware here
 app.use(express.urlencoded({
@@ -35,6 +36,11 @@ app.get("/api/books", (req, res) => {
     .catch(err => {
       res.json(err)
     })
+})
+
+app.get('/api/booksearch/:val', (req, res) => {
+  console.log(`Req `, req.params.val)
+  axios.get('www.google.com')
 })
 
 app.post("/api/books", (req, res) => {
