@@ -4,7 +4,7 @@ const PORT = process.env.PORT || 3001;
 const app = express();
 const mongoose = require("mongoose");
 const axios = require('axios')
-const env = require('dotenv')
+require('dotenv').config()
 
 // Define middleware here
 app.use(express.urlencoded({
@@ -41,7 +41,9 @@ app.get("/api/books", (req, res) => {
 
 app.get('/api/booksearch/:val', (req, res) => {
   console.log(`Req `, req.params.val)
-  axios.get('www.google.com')
+  let bookTitle = req.params.val;
+  let APIKey = process.env.GOOGLE_API;
+  axios.get('https://www.googleapis.com/books/v1/volumes?q=' + bookTitle + '&key=' + APIKey)
 })
 
 app.post("/api/books", (req, res) => {
