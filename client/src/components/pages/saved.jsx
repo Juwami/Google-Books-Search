@@ -1,9 +1,11 @@
-import React from 'react'
+import React from 'react';
 
 function Saved() {
-    <div>
-
-    </div>
+	return (
+		<div>
+			<h1>Saved</h1>
+		</div>
+	);
 }
- 
+
 export default Saved;
