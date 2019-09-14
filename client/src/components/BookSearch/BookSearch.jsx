@@ -29,7 +29,7 @@ class BookSearch extends Component {
 
 	render() {
 		return (
-			<div className="border">
+			<div className="border p-1">
 				<h3>Book Search</h3>
 				<InputTextField handleInputChange={this.handleInputChange} handleSubmit={this.handleSubmit} />
 			</div>
