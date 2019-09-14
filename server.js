@@ -40,10 +40,15 @@ app.get("/api/books", (req, res) => {
 })
 
 app.get('/api/booksearch/:val', (req, res) => {
-  console.log(`Req `, req.params.val)
+  // console.log(`Req `, req.params.val)
   let bookTitle = req.params.val;
   let APIKey = process.env.GOOGLE_API;
   axios.get('https://www.googleapis.com/books/v1/volumes?q=' + bookTitle + '&key=' + APIKey)
+    .then(
+      response => { 
+        console.log(response);
+        res.send(response.data.items)
+      })
 })
 
 app.post("/api/books", (req, res) => {
